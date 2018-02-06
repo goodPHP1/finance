@@ -195,4 +195,7 @@ class MyController extends Controller
 		$loans_info = DB::select('select * from loans where status=?',[1]);
 		return view('my.my_loans',['loans_info'=>$loans_info]);
 	}
+	public function aaaa(){
+	
+	}
 }
