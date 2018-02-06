@@ -67,9 +67,5 @@ class LoginController extends Controller
 		$return_str = curl_exec($curl);
 		curl_close($curl);
 		return $return_str;
-		echo 1;
-	}
-	public function abc(){
-		
 	}
 }
