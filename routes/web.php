@@ -33,3 +33,6 @@ Route::any('invest/{action}', function(App\Http\Controllers\InvestController $in
 Route::any('my/{action}', function(App\Http\Controllers\MyController $index, $action){
     return $index->$action();
 });
+Route::any('backer/{action}', function(App\Http\Controllers\BackerController $index, $action){
+    return $index->$action();
+});

@@ -20,6 +20,16 @@
 <body>
 <!-- header start -->
 @include('common.head')
+<div class="zxcf_menu_wper">
+	<div class="zxcf_menu px1000">
+		  <a href="/index/index">首页</a>
+		  <a href="/index/invest" class="zm_cura">我要投资</a>
+		  <a href="/index/borrow">我要借款</a>
+		  <a href="#">实时财务</a>
+		  <a href="/index/noticelist">新手指引</a>
+		  <a href="#" style="margin-right:0;">关于我们</a>
+	</div>
+</div>
 <div class="invest_con_wper">
 	  <div class="invest_con px1000">
 	  	     <div class="product_choose">

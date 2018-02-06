@@ -3,13 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 	<title>detail</title>
-	<base href="{{ URL::asset('/home/11112/js/') }}">
-	<base href="{{ URL::asset('/home/11112/css/') }}">
-	<base href="{{ URL::asset('/home/11112/images/') }}">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+	<base href="{{ URL::asset('/home/jss/') }}">
+	<base href="{{ URL::asset('/home/js/') }}">
+	<base href="{{ URL::asset('/home/css/') }}">
+	<base href="{{ URL::asset('/home/images/') }}">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
 <!-- <link rel="stylesheet/less" type="text/css" href="css/style.less" /> -->
-<script type="text/javascript" src="{{ URL::asset('/home/11112/js/jquery-1.7.2.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('/home/11112/js/all.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('/home/jss/jquery-1.7.2.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('/home/jss/all.js') }}"></script>
 <!--[if IE 6]> 
 <script src="./js/iepng.js" type="text/javascript"></script> 
 <script type="text/javascript">
@@ -19,6 +20,16 @@
 </head>
 <body>
 @include('common.head')
+<div class="zxcf_menu_wper">
+	<div class="zxcf_menu px1000">
+		  <a href="/index/index">首页</a>
+		  <a href="/index/invest" class="zm_cura">我要投资</a>
+		  <a href="/index/borrow">我要借款</a>
+		  <a href="#">实时财务</a>
+		  <a href="/index/noticelist">新手指引</a>
+		  <a href="#" style="margin-right:0;">关于我们</a>
+	</div>
+</div>
 <div class="zxcf_detail_wper">
 
 	  <div class="zxcf_detail px1000">
@@ -31,7 +42,7 @@
 	  	     	    	  	  </div>
 	  	     	    	  	  <!-- end l -->
 	  	     	    	  	  <div class="det_introl_tit_r fr">
-	  	     	    	  	  	  保障级别：A级 <img src="{{ URL::asset('/home/11112/images/det_wenhao.png') }}" alt="">
+	  	     	    	  	  	  保障级别：A级 <img src="{{ URL::asset('/home/images/det_wenhao.png') }}" alt="">
 	  	     	    	  	  </div>
 	  	     	    	  </div>
 	  	     	    	  <!-- end tit -->
@@ -118,10 +129,10 @@
 	  	     	   	            	   </p>
 	  	     	   	            	   </div>
 	  	     	   	            	   <div class="det_clsj ">
-	  	     	   	            	     <img src="{{ URL::asset('/home/11112/images/det_pic01.png') }}" alt="">
+	  	     	   	            	     <img src="{{ URL::asset('/home/images/det_pic01.png') }}" alt="">
 	  	     	   	            	   </div>
 	  	     	   	            	    <div class="det_clsj ">
-	  	     	   	            	     <img src="{{ URL::asset('/home/11112/images/det_pic02.png') }}" alt="">
+	  	     	   	            	     <img src="{{ URL::asset('/home/images/det_pic02.png') }}" alt="">
 	  	     	   	            	   </div>
 	  	     	   	            	   <h2 class="det_proone_tit mt30">基本信息</h2>
 	  	     	   	            	    <div class="det_clsj ">
@@ -419,7 +430,7 @@
 	  	     	   	     	   <img src="{{ URL::asset('/home/11112/images/comment_pic03.png') }}" alt="">	
 	  	     	   	     	 </span>
 	  	     	   	     	 <div class="fl ml">
-	  	     	   	     	 	  <h3>{{$value->name}}</h3>
+	  	     	   	     	 	  <h3>{{$value->username}}</h3>
 	  	     	   	     	 	  <p>{{$value->ping}}</p>
 	  	     	   	     	 	  <p>{{$value->datetime}}</p>
 	  	     	   	     	 </div>

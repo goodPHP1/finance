@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Pagination\paginate;
 use Illuminate\Http\Request;
 
-use DB;
+// use DB;
 
 class IndexController extends Controller
 {
