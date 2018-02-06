@@ -3,13 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 	<title>detail</title>
+	<base href="{{ URL::asset('/home/jss/') }}">
 	<base href="{{ URL::asset('/home/js/') }}">
 	<base href="{{ URL::asset('/home/css/') }}">
 	<base href="{{ URL::asset('/home/images/') }}">
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 <!-- <link rel="stylesheet/less" type="text/css" href="css/style.less" /> -->
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="js/all.js"></script>
+<script type="text/javascript" src="{{ URL::asset('/home/jss/jquery-1.7.2.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('/home/jss/all.js') }}"></script>
 <!--[if IE 6]> 
 <script src="./js/iepng.js" type="text/javascript"></script> 
 <script type="text/javascript">
@@ -18,63 +19,30 @@
 <![endif]-->
 </head>
 <body>
-<!-- header start -->
-<div class="zxcf_top_wper">
-	<div class="zxcf_top px1000 clearfix">
-		 <div class="zxcf_top_l fl">
-		    <img src="images/zxcf_phone.png" alt="">
-		    400-027-0101(工作时间9:00-17:30)
-		    <a href="#"><img src="images/zxcf_weixin.png" alt=""></a>
-		    <a href="#"><img src="images/zxcf_sina.png" alt=""></a>
-		    <a href="#"><img src="images/zxcf_qq.png" alt=""></a>
-		 </div>
-		 <div class="zxcf_top_r fr">
-		 	<a href="login.html" class="curspan">立即登录</a>
-		 	<span>|</span>
-		 	<a href="register.html">免费注册</a>
-		 	<span>|</span>
-		 	<a href="problem.html">常见问题</a>
-		 </div>
-	</div>
-</div>
-<!-- end top -->
-<div class="zxcf_nav_wper">
-	<div class="zxcf_nav clearfix px1000">
-		 <div class="zxcf_nav_l fl"><img src="images/zxcf_logo.png" alt=""></div>
-		 <div class="zxcf_nav_r fr">
-		 	<img src="images/zxcf_perinfo.png" alt="">
-		 	<span>我的账户
-		 	<img src="images/zxcf_icon01.png" alt=""></span>
-		 	<ul class="zxcf_perinfo" style="display:none;">
-		 		<li><a href="#">111</a></li>
-		 		<li><a href="#">111</a></li>
-		 		<li><a href="#">111</a></li>
-		 	</ul>
-		 </div>
-	</div>
-</div>
+@include('common.head')
 <div class="zxcf_menu_wper">
 	<div class="zxcf_menu px1000">
-		  <a href="index.html" class="zm_cura">首页</a>
-		  <a href="invest.html">我要投资</a>
-		  <a href="borrow.html">我要借款</a>
+		  <a href="/index/index">首页</a>
+		  <a href="/index/invest" class="zm_cura">我要投资</a>
+		  <a href="/index/borrow">我要借款</a>
 		  <a href="#">实时财务</a>
-		  <a href="noticelist.html">新手指引</a>
+		  <a href="/index/noticelist">新手指引</a>
 		  <a href="#" style="margin-right:0;">关于我们</a>
 	</div>
 </div>
-<!-- end  -->
 <div class="zxcf_detail_wper">
+
 	  <div class="zxcf_detail px1000">
+	  <?php foreach ($res as $key => $value): ?>
 	  	     <div class="detail_intro clearfix">
 	  	     	    <div class="detail_intro_l fl">
 	  	     	    	  <div class="detail_introl_tit clearfix">
 	  	     	    	  	  <div class="det_introl_tit_l fl">
-	  	     	    	  	  	   <span>抵押</span> 购车借款23万第2标13万
+	  	     	    	  	  	   <span><?php if($value->pledge=1){echo "信用";}else if($value->pledge=0){echo "抵押";}?></span> {{$value->corporate_name}}
 	  	     	    	  	  </div>
 	  	     	    	  	  <!-- end l -->
 	  	     	    	  	  <div class="det_introl_tit_r fr">
-	  	     	    	  	  	  保障级别：A级 <img src="images/det_wenhao.png" alt="">
+	  	     	    	  	  	  保障级别：A级 <img src="{{ URL::asset('/home/images/det_wenhao.png') }}" alt="">
 	  	     	    	  	  </div>
 	  	     	    	  </div>
 	  	     	    	  <!-- end tit -->
@@ -83,7 +51,7 @@
 	  	     	    	  	    	<li>
 	  	     	    	  	    		 年华收益<br>
 	  	     	    	  	    		 <span style="color:#ff7112;">
-	  	     	    	  	    		 	 <strong>12</strong>% 年华
+	  	     	    	  	    		 	 <strong>{{$value->income}}</strong>% 年华
 	  	     	    	  	    		 </span>
 	  	     	    	  	    	</li>
 	  	     	    	  	    	<li>
@@ -95,7 +63,7 @@
                                     <li>
 	  	     	    	  	    		 项目规模<br>
 	  	     	    	  	    		 <span >
-	  	     	    	  	    		 	 <strong>1000</strong>万
+	  	     	    	  	    		 	 <strong>{{$value->rais_money}}</strong>元
 	  	     	    	  	    		 </span>
 	  	     	    	  	    	</li>
 
@@ -103,44 +71,51 @@
 	  	     	    	  	    <!-- end  -->
 	  	     	    	  	    <ul class="det_intro_tul2 clearfix">
 	  	     	    	  	    	<li>
-	  	     	    	  	    		发布日期：2015-07-08
+	  	     	    	  	    		发布日期：{{$value->date}}
 	  	     	    	  	    	</li>
 	  	     	    	  	    	<li>
-	  	     	    	  	    	    还款方式：按月付息，到期还本
+	  	     	    	  	    	    还款方式：{{$value->repayment}}
 	  	     	    	  	    	</li>
 	  	     	    	  	    	<li>
-	  	     	    	  	    		 还款日期：2016-07-11
+	  	     	    	  	    		 还款日期：2018-02-27
 	  	     	    	  	    	</li>
 	  	     	    	  	    	<li>
-	  	     	    	  	    		保障机构：北京国能小额贷款股份公司
+	  	     	    	  	    		保障机构：{{$value->guarantee}}
 	  	     	    	  	    	</li>
 	  	     	    	  	    </ul>
 	  	     	    	  </div>
 	  	     	    	  <!-- end text -->
 	  	     	    </div>
 	  	     	    <div class="detail_intro_r fr">
-	  	     	    	  <h2 class="det_intro_h2 clearfix"><span class="fl">投资进度:</span><em class="fr">46.05%</em></h2>
+	  	     	    	  <h2 class="det_intro_h2 clearfix"><span class="fl">投资进度:</span><em class="fr">{{$value->schedule}}%</em></h2>
 	  	     	    	  <div class="jklb_press_wper">
                                                 	 	  <div class="jklb_press">
                                                 	 	  	  
                                                 	 	  </div>
                           </div>
                           <!--  -->
-                          <p class="det_rzye clearfix"><span class="fl">融资余额</span><em class="fr"><strong>1,078,121.00</strong>元</em></p>
+                          <p class="det_rzye clearfix"><span class="fl">融资余额</span><em class="fr"><strong><?php echo ($value->rais_money)*($value->schedule) ?>.00</strong>元</em></p>
+                          <form action="/index/detail_do/" method="get">
+                          {{csrf_field()}}
+                          <input type="hidden" name="u_id" value="{{$value->u_id}}">
+                          <input type="hidden" name="i_id" value="{{$value->i_id}}">
+                          <input type="hidden" name="uid" value="{{$value->uid}}">
                           <p class="det_input">
-                          	  <input type="text" placeholder="100">
+                          	  <input type="text" placeholder="一次性最低100" name='touzi'>
                           </p>
-                          <p class="det_shouyi">每投资1万元收益<strong>183.33元</strong></p>
-                          <p><a href="#" class=" pro_btn det_btn">立即投资</a></p>
+                          <p class="det_shouyi">每投资1万元收益<strong>100元</strong></p>
+                          <p><input type="submit" value="立即投资" class=" pro_btn det_btn"></p>
+                          </form>
 	  	     	    </div>
 	  	     </div>
+	  <?php endforeach ?>
 	  	     <!-- end block1 -->
 	  	     <div class="detail_con mt30">
 	  	     	   <h2 class="detail_con_tit clearfix">
 	  	     	   	   <span class="det_tit_curspan">项目描述</span>
 	  	     	   	   <span>风控信息</span>
 	  	     	   	   <span>贷后管理</span>
-	  	     	   	   <span>投标记录<i>10</i></span>
+	  	     	   	   <span>投标记录<i>8</i></span>
 	  	     	   </h2>
 	  	     	   <div class="det_con_box">
 	  	     	   	      <div class="det_con_proone clearfix">
@@ -154,10 +129,10 @@
 	  	     	   	            	   </p>
 	  	     	   	            	   </div>
 	  	     	   	            	   <div class="det_clsj ">
-	  	     	   	            	     <img src="images/det_pic01.png" alt="">
+	  	     	   	            	     <img src="{{ URL::asset('/home/images/det_pic01.png') }}" alt="">
 	  	     	   	            	   </div>
 	  	     	   	            	    <div class="det_clsj ">
-	  	     	   	            	     <img src="images/det_pic02.png" alt="">
+	  	     	   	            	     <img src="{{ URL::asset('/home/images/det_pic02.png') }}" alt="">
 	  	     	   	            	   </div>
 	  	     	   	            	   <h2 class="det_proone_tit mt30">基本信息</h2>
 	  	     	   	            	    <div class="det_clsj ">
@@ -289,22 +264,22 @@
 	  	     	   	            	 <h2 class="det_proone_tit">还款概况</h2>
 	  	     	   	            	 <ul  class="dhgl_ul">
 	  	     	   	            	 	 <li>
-	  	     	   	            	 	    <img src="images/2.jpg" alt="">
+	  	     	   	            	 	    <img src="{{ URL::asset('/home/11112/images/2.jpg') }}" alt="">
 	  	     	   	            	 	    <span>应付利息</span>
 	  	     	   	            	 	    <span>123213.4元（12期）</span>
 	  	     	   	            	 	 </li>
 	  	     	   	            	 	 <li>
-	  	     	   	            	 	    &nbsp;<img src="images/3.jpg" alt="">
+	  	     	   	            	 	    &nbsp;<img src="{{ URL::asset('/home/11112/images/3.jpg') }}" alt="">
 	  	     	   	            	 	    <span>应付利息</span>
 	  	     	   	            	 	    <span>123213.4元（12期）</span>
 	  	     	   	            	 	 </li>
 	  	     	   	            	 	 <li>
-	  	     	   	            	 	    &nbsp;<img src="images/4.jpg" alt="">
+	  	     	   	            	 	    &nbsp;<img src="{{ URL::asset('/home/11112/images/4.jpg') }}" alt="">
 	  	     	   	            	 	    <span>应付利息</span>
 	  	     	   	            	 	    <span>123213.4元（12期）</span>
 	  	     	   	            	 	 </li>
 	  	     	   	            	 	 <li>
-	  	     	   	            	 	    <img src="images/5.jpg" alt="">
+	  	     	   	            	 	    <img src="{{ URL::asset('/home/11112/images/5.jpg') }}" alt="">
 	  	     	   	            	 	    <span>应付利息</span>
 	  	     	   	            	 	    <span>123213.4元（12期）</span>
 	  	     	   	            	 	 </li>
@@ -360,11 +335,12 @@
 	  	     	   	            	 
 	  	     	   	            </div>
 	  	     	   	            <!-- end dhgl -->
+	  	     	   	           
 	  	     	   	            <div class="det_proone_l" style="display:none;">
 	  	     	   	            	  <P class="det_tbjl_tit">
-	  	     	   	            	     <span class="mr30"><img src="images/det_tbjl_pic01.png" alt=""> 
+	  	     	   	            	     <span class="mr30"><img src="{{ URL::asset('/home/11112/images/det_tbjl_pic01.png') }}" alt=""> 
 	  	     	   	            	     目前总金额：￥21,122.00</span>
-	  	     	   	            	     <span><img src="images/det_tbjl_pic02.png" alt=""> 
+	  	     	   	            	     <span><img src="{{ URL::asset('/home/11112/images/det_tbjl_pic02.png') }}" alt=""> 
 	  	     	   	            	     剩余金额：￥123,123.00</span>
 	  	     	   	            	  </P>
 	  	     	   	            	  <table class="det_table">
@@ -374,69 +350,18 @@
 	  	     	   	            	  	  	  <td class="det_w1160">投资时间</td>
 	  	     	   	            	  	  	  <td>状态</td>
 	  	     	   	            	  	  </tr>
-	  	     	   	            	  	  <tr>
+	  	     	   	            	  	  <?php foreach ($jilu as $key => $value): ?>
+	  	     	   	            	  	  	<tr>
 	  	     	   	            	  	  	  <td>0****</td>
-	  	     	   	            	  	  	  <td>10000.00元</td>
-	  	     	   	            	  	  	  <td>2015-07-08 18:08:05</td>
+	  	     	   	            	  	  	  <td>{{$value->touzi}}元</td>
+	  	     	   	            	  	  	  <td>{{$value->datetime}}</td>
 	  	     	   	            	  	  	  <td>手动投标</td>
 	  	     	   	            	  	  </tr>
-                                          <tr>
-	  	     	   	            	  	  	  <td>0****</td>
-	  	     	   	            	  	  	  <td>10000.00元</td>
-	  	     	   	            	  	  	  <td>2015-07-08 18:08:05</td>
-	  	     	   	            	  	  	  <td>手动投标</td>
-	  	     	   	            	  	  </tr>
-                                          <tr>
-	  	     	   	            	  	  	  <td>0****</td>
-	  	     	   	            	  	  	  <td>10000.00元</td>
-	  	     	   	            	  	  	  <td>2015-07-08 18:08:05</td>
-	  	     	   	            	  	  	  <td>手动投标</td>
-	  	     	   	            	  	  </tr>
-                                          <tr>
-	  	     	   	            	  	  	  <td>0****</td>
-	  	     	   	            	  	  	  <td>10000.00元</td>
-	  	     	   	            	  	  	  <td>2015-07-08 18:08:05</td>
-	  	     	   	            	  	  	  <td>手动投标</td>
-	  	     	   	            	  	  </tr>
-                                          <tr>
-	  	     	   	            	  	  	  <td>0****</td>
-	  	     	   	            	  	  	  <td>10000.00元</td>
-	  	     	   	            	  	  	  <td>2015-07-08 18:08:05</td>
-	  	     	   	            	  	  	  <td>手动投标</td>
-	  	     	   	            	  	  </tr>
-                                          <tr>
-	  	     	   	            	  	  	  <td>0****</td>
-	  	     	   	            	  	  	  <td>10000.00元</td>
-	  	     	   	            	  	  	  <td>2015-07-08 18:08:05</td>
-	  	     	   	            	  	  	  <td>手动投标</td>
-	  	     	   	            	  	  </tr>
-                                          <tr>
-	  	     	   	            	  	  	  <td>0****</td>
-	  	     	   	            	  	  	  <td>10000.00元</td>
-	  	     	   	            	  	  	  <td>2015-07-08 18:08:05</td>
-	  	     	   	            	  	  	  <td>手动投标</td>
-	  	     	   	            	  	  </tr>
-                                          <tr>
-	  	     	   	            	  	  	  <td>0****</td>
-	  	     	   	            	  	  	  <td>10000.00元</td>
-	  	     	   	            	  	  	  <td>2015-07-08 18:08:05</td>
-	  	     	   	            	  	  	  <td>手动投标</td>
-	  	     	   	            	  	  </tr>
-                                          <tr>
-	  	     	   	            	  	  	  <td>0****</td>
-	  	     	   	            	  	  	  <td>10000.00元</td>
-	  	     	   	            	  	  	  <td>2015-07-08 18:08:05</td>
-	  	     	   	            	  	  	  <td>手动投标</td>
-	  	     	   	            	  	  </tr>
-                                          <tr>
-	  	     	   	            	  	  	  <td>0****</td>
-	  	     	   	            	  	  	  <td>10000.00元</td>
-	  	     	   	            	  	  	  <td>2015-07-08 18:08:05</td>
-	  	     	   	            	  	  	  <td>手动投标</td>
-	  	     	   	            	  	  </tr>
-                                          
+	  	     	   	            	  	  <?php endforeach ?>
+	  	     	   	            	  	  
 	  	     	   	            	  </table>
 	  	     	   	            </div>
+	  	     	   	           
 	  	     	   	            <!-- end tbjl -->
 	  	     	   	           </div> 
 	  	     	   	            <!-- end l -->
@@ -446,24 +371,24 @@
 	  	     	   	      	    	   <ul class="det_proone_rul">
 	  	     	   	      	    	   	   <li class="clearfix">
 	  	     	   	      	    	   	   	  <span class="fl mr15">
-	  	     	   	      	    	   	   	  	  <img src="images/det_dbh01.png" alt=""><br><br>
+	  	     	   	      	    	   	   	  	  <img src="{{ URL::asset('/home/11112/images/det_dbh01.png') }}" alt=""><br><br>
 	  	     	   	      	    	   	   	  	  担保函
 	  	     	   	      	    	   	   	  	  
 	  	     	   	      	    	   	   	  </span>
 	  	     	   	      	    	   	   	   <span class="fl">
-	  	     	   	      	    	   	   	  	  <img src="images/det_dbh02.png" alt=""><br><br>
+	  	     	   	      	    	   	   	  	  <img src="{{ URL::asset('/home/11112/images/det_dbh02.png') }}" alt=""><br><br>
 	  	     	   	      	    	   	   	  	  身份证
 	  	     	   	      	    	   	   	  	 
 	  	     	   	      	    	   	   	  </span>
 	  	     	   	      	    	   	   </li>
 	  	     	   	      	    	   	   <li class="clearfix">
 	  	     	   	      	    	   	   	  <span class="fl mr15">
-	  	     	   	      	    	   	   	  	  <img src="images/det_dbh01.png" alt=""><br><br>
+	  	     	   	      	    	   	   	  	  <img src="{{ URL::asset('/home/11112/images/det_dbh01.png') }}" alt=""><br><br>
 	  	     	   	      	    	   	   	  	  担保函
 	  	     	   	      	    	   	   	  	  
 	  	     	   	      	    	   	   	  </span>
 	  	     	   	      	    	   	   	   <span class="fl">
-	  	     	   	      	    	   	   	  	  <img src="images/det_dbh02.png" alt=""><br><br>
+	  	     	   	      	    	   	   	  	  <img src="{{ URL::asset('/home/11112/images/det_dbh02.png') }}" alt=""><br><br>
 	  	     	   	      	    	   	   	  	  身份证
 	  	     	   	      	    	   	   	  	 
 	  	     	   	      	    	   	   	  </span>
@@ -478,98 +403,50 @@
 	  	     </div>
 	  	     <!-- end block2 -->
 	  	     <!-- 用户评论开始 -->
+	  	     
 	  	     <div class="det_comment mt30">
 	  	     	   <h2 class="det_comment_tit">用户评论</h2>
+	  	     	   <form action="/index/ping/" method="get" enctype="multipart/form-data" 	>
+	  	     	   <input type="hidden" name="u_id" value="4">
 	  	     	   <div class="det_comment_text clearfix">
 	  	     	   	   <div class="comment_l fl pl30">
-	  	     	   	   	   <img src="images/comment_pic02.png" alt="">
+	  	     	   	   	   <img src="{{ URL::asset('/home/upload/comment_pic02.JPG') }}" alt="">
 	  	     	   	   </div>
 	  	     	   	   <!-- end l -->
 	  	     	   	   <div class="comment_r fl ml20">
-	  	     	   	   	   <textarea name="" id="" cols="30" rows="10"></textarea>
+	  	     	   	   	   <textarea name="ping" id="" cols="30" rows="10"></textarea>
 	  	     	   	   </div>
 	  	     	   	   <!-- end r -->
 	  	     	   </div>
 	  	     	   <div class="comment_btn clearfix">
-	  	     	   	   <a href="#" class="det_btn">提交</a>
+	  	     	   	   <a href="" class="det_btn"><input type="submit" value="提交"></a>
 	  	     	   </div>
+	  	     	   </form>
 	  	     	   <div class="comment_show">
+	  	     	   <?php foreach ($ping as $key => $value): ?>
 	  	     	   	     <ul class="comment_show_ul">
 	  	     	   	     	 <li class="clearfix">
 	  	     	   	     	 <span class="fl mr30">
-	  	     	   	     	   <img src="images/comment_pic03.png" alt="">	
+	  	     	   	     	   <img src="{{ URL::asset('/home/11112/images/comment_pic03.png') }}" alt="">	
 	  	     	   	     	 </span>
 	  	     	   	     	 <div class="fl ml">
-	  	     	   	     	 	  <h3>发布的风向 标</h3>
-	  	     	   	     	 	  <p><img src="images/comment_pic04.png" alt=""></p>
-	  	     	   	     	 	  <p>前天 13:40</p>
-	  	     	   	     	 </div>
-	  	     	   	     	 </li>
-	  	     	   	     	 <li class="clearfix">
-	  	     	   	     	 <span class="fl mr30">
-	  	     	   	     	   <img src="images/comment_pic03.png" alt="">	
-	  	     	   	     	 </span>
-	  	     	   	     	 <div class="fl ml">
-	  	     	   	     	 	  <h3>发布的风向 标</h3>
-	  	     	   	     	 	  <p><img src="images/comment_pic04.png" alt=""></p>
-	  	     	   	     	 	  <p>前天 13:40</p>
+	  	     	   	     	 	  <h3>{{$value->username}}</h3>
+	  	     	   	     	 	  <p>{{$value->ping}}</p>
+	  	     	   	     	 	  <p>{{$value->datetime}}</p>
 	  	     	   	     	 </div>
 	  	     	   	     	 </li>
 	  	     	   	     </ul>
+	  	     	   	 <?php endforeach ?>
 	  	     	   </div>
 	  	     </div>
+	  	     
 	  	     <!-- 用户评结束 -->
 	  </div>
+
 </div>
 <!-- end con -->
 <!-- footer start -->
-<div class="zscf_aboutus_wper">
-	  <div class="zscf_aboutus px1000 clearfix">
-	  	    <div class="zscf_aboutus_l fl">
-	  	    	   <ul class="zscf_aboutus_lul clearfix">
-	  	    	   	  <li class="pt10"><a href="#"><img src="images/app.png" alt=""></a>
-	  	    	   	  </li>
-	  	    	   	  <li>
-	  	    	   	  <p class="pb20">服务热线</p>
-	  	    	   	  <strong>400-027-0101</strong>
-	  	    	   	  </li>
-	  	    	   	  <li>
-	  	    	   	  	  <p class="pb10 linkpic">
-	  	    	   	  	     <a href="#"><img src="images/ft_sina.png" alt=""></a>
-	  	    	   	  	     <a href="#"><img src="images/ft_weixin.png" alt=""></a>
-	  	    	   	  	     <a href="#"><img src="images/ft_erji.png" alt=""></a>
-	  	    	   	  	  </p>
-	  	    	   	  	  <p><a href="#">kefu@zhongxincaifu.com</a></p>
-	  	    	   	  </li>
-	  	    	   </ul>
-	  	    </div>
-	  	    <!-- end left -->
-	  	    <div class="zscf_aboutus_r fl clearfix">
-	  	    	 <a href="#" class="fl ft_ewm"><img src="images/ft_erweima.png" alt=""></a>
-	  	    	 <ul class="fl clearfix">
-	  	    	 	<li><a href="#">联系我们</a></li>
-	  	    	 	<li><a href="#">我要融资</a></li>
-	  	    	 	<li><a href="problem.html">帮助中心</a></li>
-	  	    	 	<li><a href="#">友情链接</a></li>
-	  	    	 	<li><a href="#">招贤纳士</a></li>
-	  	    	 	<li><a href="#">收益计算器</a></li>
-	  	    	 </ul>
-	  	    </div>
-	  	    <!-- end right -->
-
-	  </div>
-</div>
-
-<div class="zscf_bottom_wper">
-	<div class="zscf_bottom px1000 clearfix">
-		  <p class="fl">© 2014 zhongxincaifu &nbsp;  &nbsp;&nbsp;   中兴财富金融信息服务股份有限公司 &nbsp;&nbsp;&nbsp;    来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
-		  <p class="fr">
-		    <a href="#"><img src="images/360.png" alt=""></a>
-		    <a href="#"><img src="images/kexin.png" alt=""></a>
-		    <a href="#"><img src="images/norton.png" alt=""></a>
-		  </p>
-	</div>
-</div>
+@include('common.bottom')
 <!-- footer end -->
 </body>
 </html>
