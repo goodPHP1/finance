@@ -69,4 +69,7 @@ class LoginController extends Controller
 		return $return_str;
 		echo 1;
 	}
+	public function abc(){
+		
+	}
 }
