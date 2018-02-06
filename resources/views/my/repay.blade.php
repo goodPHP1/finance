@@ -24,8 +24,8 @@
                     <h3 class="t1">
                         我的大融小贷<span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a href="/my/mypage">个人主页</a></li><li><a href="个人资料.htm">个人资料</a></li><li><a href="认证管理.htm">
-                            认证管理</a></li><li><a href="密码管理.htm">密码设置</a></li><li><a href="推荐有奖.htm">推荐有奖</a></li></ul>
+                        <li><a href="/my/mypage">个人主页</a></li><li><a href="my/info">个人资料</a></li><li><a href="认证管理.htm">
+                            认证管理</a></li><li><a href="密码管理.htm">密码设置</a></li><li><a href="/my/recommend">推荐有奖</a></li></ul>
                 </li>
                 <li class="item" id="user_menu_funds" name="user_menu_funds">
                     <h3 class="t2">
@@ -38,14 +38,14 @@
                     <h3 class="t4">
                         理财管理<span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a href="我的投资.htm">我的投资</a></li><li><a href="债权转让.htm">债权转让</a></li><li><a href="自动投标.htm">自动投标</a></li><li>
+                        <li><a href="/my/invest">我的投资</a></li><li><a href="债权转让.htm">债权转让</a></li><li><a href="自动投标.htm">自动投标</a></li><li>
                             <a href="理财统计.htm">理财统计</a></li></ul>
                 </li>
                 <li class="item" id="user_menu_loan" name="user_menu_loan">
                     <h3 class="t3">
                         贷款管理<a name="user_login"></a><span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a href="/my/my_loans">我的贷款</a></li><li><a class="current" href="javascript:;">偿还贷款</a></li><li><a href="/my/statistical">
+                        <li><a href="我的贷款.htm">我的贷款</a></li><li><a class="current" href="javascript:;">偿还贷款</a></li><li><a href="/my/statistical">
                             贷款统计</a></li></ul>
                 </li>
             </ul>
@@ -140,16 +140,16 @@
                                     <a target="_blank" href="#" class="imp f14">12</a>
                                 </td>
                                 <td>
-                                    <i class="red">￥12000</i>
+                                    <i class="red">￥12</i>
                                 </td>
                                 <td>
-                                    <i class="red">24个月</i>
+                                    <i class="red">12天</i>
                                 </td>
                                 <td>
-                                    <i class="red">0.3%</i>
+                                    <i class="red">13%</i>
                                 </td>
                                 <td>
-                                    <i class="red">未还</i>
+                                    <i class="red">12</i>
                                 </td>
                                 <td>
                                 </td>

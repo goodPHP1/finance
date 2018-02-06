@@ -27,29 +27,28 @@
                     <h3 class="t1">
                         我的大融小贷<span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a href="/my/mypage">个人主页</a></li><li><a href="个人资料.htm">个人资料</a></li><li><a href="认证管理.htm">
+                        <li><a href="个人主页.htm">个人主页</a></li><li><a href="个人资料.htm">个人资料</a></li><li><a href="认证管理.htm">
                             认证管理</a></li><li><a href="密码管理.htm">密码设置</a></li><li><a href="推荐有奖.htm">推荐有奖</a></li></ul>
                 </li>
                 <li class="item" id="user_menu_funds" name="user_menu_funds">
                     <h3 class="t2">
                         资金管理<span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a href="资金记录.htm">资金记录</a></li><li><a class="current" href="javascript:;">充值记录</a></li><li><a href="提现中心.htm">
-                            提现记录</a></li><li><a href="三方托管.htm">三方托管</a></li></ul>
+                         <li><a href="资金记录.htm">资金记录</a></li><li><a class="current" href="充值中心.htm">充值记录</a></li><li><a href="提现中心.htm">提现记录</a></li><li><a href="三方托管.htm">三方托管</a></li></ul>
+                        
                 </li>
                 <li class="item" id="user_menu_invest" name="user_menu_invest">
                     <h3 class="t4">
                         理财管理<span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a href="/my/invest">我的投资</a></li><li><a href="债权转让.htm">债权转让</a></li><li><a href="自动投标.htm">自动投标</a></li><li>
-                            <a href="理财统计.htm">理财统计</a></li></ul>
+                        <li><li><a  href="我的贷款.htm">我的贷款</a></li><li><a href="偿还贷款.htm">偿还贷款</a></li><li><a href="贷款统计.htm">贷款统计</a></li></ul>
                 </li>
                 <li class="item" id="user_menu_loan" name="user_menu_loan">
                     <h3 class="t3">
                         贷款管理<a name="user_login"></a><span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a href="我的贷款.htm">我的贷款</a></li><li><a href="/my/repay">偿还贷款</a></li><li><a href="/my/statistical">
-                            贷款统计</a></li></ul>
+                        <li><a href="#">我的贷款</a></li><li><a href="#">偿还贷款</a></li><li>
+                            <a href="#">贷款统计</a></li></ul>
                 </li>
             </ul>
             <script type="text/javascript">
@@ -62,7 +61,7 @@
                         menuClosed = '';
                         Ops.setCookie('menuClosed', menuClosed);
                     }
-                    //console.log(menuClosed+',click;;;');  
+                    //console.log(menuClosed+',click;;;');	
                     $(this).parent().parent().toggleClass('bg-slide');
                     $(this).parent().parent().find(".sub").slideToggle('fast');
 

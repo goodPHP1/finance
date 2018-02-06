@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -23,8 +23,8 @@
                     <h3 class="t1">
                         我的大融小贷<span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a class="current" href="javascript:;">个人主页</a></li><li><a href="个人资料.htm">个人资料</a></li><li>
-                            <a href="认证管理.htm">认证管理</a></li><li><a href="密码管理.htm">密码设置</a></li><li><a href="推荐有奖.htm">推荐有奖</a></li></ul>
+                        <li><a class="current" href="javascript:;">个人主页</a></li><li><a href="/my/info">个人资料</a></li><li>
+                            <a href="/my/approve">认证管理</a></li><li><a href="/my/pwd">密码设置</a></li><li><a href="/my/recommend">推荐有奖</a></li></ul>
                 </li>
                 <li class="item" id="user_menu_funds" name="user_menu_funds">
                     <h3 class="t2">
@@ -36,14 +36,14 @@
                     <h3 class="t4">
                         理财管理<span title="折叠"></span></h3>
                     <ul class="sub">
-                       <li><a href="我的投资.htm">我的投资</a></li><li><a href="债权转让.htm">债权转让</a></li><li><a href="自动投标.htm">自动投标</a></li><li>
+                       <li><a href="/my/invest">我的投资</a></li><li><a href="债权转让.htm">债权转让</a></li><li><a href="自动投标.htm">自动投标</a></li><li>
                             <a href="理财统计.htm">理财统计</a></li></ul>
                 </li>
                 <li class="item" id="user_menu_loan" name="user_menu_loan">
                     <h3 class="t3">
                         贷款管理<a name="user_login"></a><span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a  href="/my/my_loans">我的贷款</a></li><li><a href="/my/repay">偿还贷款</a></li><li><a href="/my/statistical">贷款统计</a></li></ul>
+                        <li><a  href="我的贷款.htm">我的贷款</a></li><li><a href="/my/repay">偿还贷款</a></li><li><a href="/my/statistical">贷款统计</a></li></ul>
                 </li>
             </ul>
             <script type="text/javascript">
@@ -100,24 +100,25 @@
                     <div class="info">
                         <ul class="info-img">
                             <li>
-                                <img src="images/tx_img.gif" class="avatar" /></li></ul>
+                                <img src="images/1.gif" class="avatar" /></li></ul>
                         <div class="info-main">
                             <div class="row">
+                            <?php foreach ($data as $k => $v): ?>                           
                                 <label>
-                                    用户名：</label>张三</div>
+                                    用户名：</label>{{$v->username}}</div>
                             <div class="row">
                                 <label>
-                                    注册时间：</label>2013-07-13</div>
+                                    注册时间：</label>{{$v->time}}</div>
                             <div class="row">
                                 <label>
-                                    所在地：</label>重庆</div>
+                                    所在地：</label>{{$v->price}}</div>
                             <div class="row">
                                 <label>
-                                    角色：</label><span class="orange">普通会员 &nbsp;&nbsp; 借入者</span></div>
+                                    角色：</label><span class="orange">{{$v->role}}</span></div>
                             <div class="row">
                                 <label>
-                                    个人统计：</label><span class="orange">0</span>&nbsp;条贷款记录 ， 共计&nbsp;<span class="orange">0</span>&nbsp;元
-                                ； <span class="orange">0</span>&nbsp;条投标记录 ， 共计&nbsp;<span class="orange">0.00</span>&nbsp;元
+                                    个人统计：</label><span class="orange">{{$v->tongji}}</span>&nbsp;条贷款记录 ， 共计&nbsp;<span class="orange">{{$v->yuan}}</span>&nbsp;元
+                                ； <span class="orange">{{$v->tender}}</span>&nbsp;条投标记录 ， 共计&nbsp;<span class="orange">{{$v->yuann}}</span>&nbsp;元
                                 。
                             </div>
                         </div>
@@ -125,8 +126,10 @@
                         </div>
                     </div>
                 </div> 
+                    <?php endforeach ?>
                 <div class="ucenter-info mt10">
                 <div class="ucenter-tab-box">
+
                         <ul class="u-tab clearfix">
                             <li class="current"><a>我关注的用户</a></li>
                             <li><a>关注我的用户</a></li>
@@ -137,22 +140,93 @@
                 <div id="tab_box">
                     <div class="u-form-wrap">
                         <div>
-                            这是我关注的用户</div>
-                    </div>
+                            <table border="1">
+                                <tr>
+                                    <th>用户名</th>
+                                    <th>电话</th>
+                                    <th>邮箱</th>
+                                    <th>年龄</th>
+                                    <th>性别</th>
+                                    <th>出生日期</th>
+                                    <th>出生地</th>
+                                </tr>
+                                <?php foreach ($user as $k => $v): ?>
+                                    <tr>
+                                        <td>{{$v->name}}</td>
+                                        <td>{{$v->tel}}</td>
+                                        <td>{{$v->email}}</td>
+                                        <td>{{$v->age}}</td>
+                                        <td>{{$v->sex}}</td>
+                                        <td>{{$v->day}}</td>
+                                        <td>{{$v->price}}</td>
+                                    </tr>
+                                <?php endforeach ?>
+                            </table>
+                        </div>
+                    </div>     
+                    <div class="u-form-wrap" style="display: none;">
+                        <div>张三&nbsp;&nbsp;&nbsp;&nbsp;男&nbsp;&nbsp;&nbsp;&nbsp;21&nbsp;&nbsp;&nbsp;&nbsp;1294262871     </div>
+                        <div>李四&nbsp;&nbsp;&nbsp;&nbsp;男&nbsp;&nbsp;&nbsp;&nbsp;22&nbsp;&nbsp;&nbsp;&nbsp;1294262871     </div>
+                        <div>王武&nbsp;&nbsp;&nbsp;&nbsp;男&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;1294262871     </div>
+                    </div>              
                     <div class="u-form-wrap" style="display: none;">
                         <div>
-                            这是关注我的用户</div>
-                    </div>
+                            <table border="1">
+                                <tr>
+                                    <th>投资公司</th>
+                                    <th>投资利润</th>
+                                    <th>投资钱数</th>
+                                    <th>投资说明</th>
+                                    <th>合作公司</th>
+                                    <th>投资时间</th>
+                                    <th>投资人</th>
+                                    <th>投资状态</th>
+                                    <th>利益</th>
+                                </tr>
+                                <?php foreach ($res as $key => $val): ?>
+                                    <tr>
+                                        <td>{{$val->corporate_name}}</td>
+                                        <td>{{$val->income}}</td>
+                                        <td>{{$val->rais_money}}</td>
+                                        <td>{{$val->repayment}}</td>
+                                        <td>{{$val->guarantee}}</td>
+                                        <td>{{$val->date}}</td>
+                                        <td>{{$val->name}}</td>
+                                        <td>{{$val->schedule}}</td>
+                                        <td>{{$val->term}}</td>
+                                    </tr>
+                                <?php endforeach ?>
+                            </table>
+                        </div>
+                    </div> 
                     <div class="u-form-wrap" style="display: none;">
                         <div>
-                            这是我的投标记录</div>
-                    </div>
-                    <div class="u-form-wrap" style="display: none;">
-                        <div>
-                            这是我的贷款记录</div>
+                        <table border="1">
+                            <tr>
+                                <th>贷款人</th>
+                                <th>贷款时间</th>
+                                <th>贷款金额</th>
+                                <th>利息</th>
+                                <th>利息金额</th>
+                            </tr>
+                      
+                            <?php foreach ($dai as $key => $value): ?>
+                              <tr>
+                                <td>{{$value->user}}</td>
+                                <td>{{$value->date}}</td>
+                                 <td>{{$value->money}}</td>
+                                <td>{{$value->interest}}</td>
+                                <td>{{$value->recycle}}</td>
+                              </tr>
+                                
+                            <?php endforeach ?>  
+                            </table>
+                           
+                        </div> {{$dai->links()}}
                     </div>
                 </div>                
             </div>
+        
             <script type="text/javascript">
 
                 var $div_li = $(".ucenter-tab-box ul li");

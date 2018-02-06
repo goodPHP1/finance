@@ -34,14 +34,14 @@
                     <h3 class="t4">
                         理财管理<span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a href="我的投资.htm">我的投资</a></li><li><a href="债权转让.htm">债权转让</a></li><li><a href="自动投标.htm">自动投标</a></li><li>
+                        <li><a href="/my/invest">我的投资</a></li><li><a href="债权转让.htm">债权转让</a></li><li><a href="自动投标.htm">自动投标</a></li><li>
                             <a href="理财统计.htm">理财统计</a></li></ul>
                 </li>
                 <li class="item" id="user_menu_loan" name="user_menu_loan">
                     <h3 class="t3">
                         贷款管理<a name="user_login"></a><span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a  href="/my/my_loans">我的贷款</a></li><li><a href="/my/repay">偿还贷款</a></li><li><a class="current" href="javascript:;">贷款统计</a></li></ul>
+                        <li><a  href="我的贷款.htm">我的贷款</a></li><li><a href="/my/repay">偿还贷款</a></li><li><a class="current" href="javascript:;">贷款统计</a></li></ul>
                 </li>
             </ul>
             <script type="text/javascript">
@@ -108,13 +108,13 @@
                                     总借款额
                                 </td>
                                 <td width="25%">
-                                    <i class="red">￥10000.00</i>
+                                    <i class="red">￥0.00</i>
                                 </td>
                                 <td width="25%">
                                     成功借款笔数
                                 </td>
                                 <td width="25%">
-                                    <i class="red">1 / 1</i>
+                                    <i class="red">0 / 0</i>
                                 </td>
                             </tr>
                             <tr>
@@ -128,7 +128,7 @@
                                     正常还清笔数
                                 </td>
                                 <td>
-                                    <i class="red">24</i>
+                                    <i class="red">0</i>
                                 </td>
                             </tr>
                             <tr>
@@ -136,13 +136,13 @@
                                     待还本息(含奖励)
                                 </td>
                                 <td>
-                                    <i class="red">￥13000.00</i>
+                                    <i class="red">￥0.00</i>
                                 </td>
                                 <td>
                                     正在还款笔数
                                 </td>
                                 <td>
-                                    <i class="red">24</i>
+                                    <i class="red">0</i>
                                 </td>
                             </tr>
                             <tr>
