@@ -71,4 +71,7 @@ class LoginController extends Controller
 	public function aaaa(){
 		
 	}
+	public function bbbb(){
+	
+	}
 }
