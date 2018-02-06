@@ -179,7 +179,6 @@
                                     <th>投资说明</th>
                                     <th>合作公司</th>
                                     <th>投资时间</th>
-                                    <th>投资人</th>
                                     <th>投资状态</th>
                                     <th>利益</th>
                                 </tr>
@@ -191,7 +190,6 @@
                                         <td>{{$val->repayment}}</td>
                                         <td>{{$val->guarantee}}</td>
                                         <td>{{$val->date}}</td>
-                                        <td>{{$val->name}}</td>
                                         <td>{{$val->schedule}}</td>
                                         <td>{{$val->term}}</td>
                                     </tr>

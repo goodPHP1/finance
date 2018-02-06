@@ -104,9 +104,7 @@
                  <th>ID</th>
                   <th>图片</th>
                   <th>标题</th>
-                  <th>贷款人</th>
                   <th>所在地区</th>
-                  <th>投标金额</th>
                   <th>期限</th>
                   <th>利润</th>
                   <th>信用等级</th>
@@ -119,8 +117,6 @@
                     <td>{{$v->i_id}}</td>
                     <td><img src="images/1.gif" alt="" height="25px" width="25px" /></td>
                     <td>{{$v->corporate_name}}</td>
-                    <td>{{$v->name}}</td>
-                    <td>{{$v->price}}</td>
                     <td>{{$v->rais_money}}</td>
                     <td>{{$v->term}}</td>
                     <td>{{$v->income}}</td>
