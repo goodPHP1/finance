@@ -36,7 +36,7 @@ Route::any('my/{action}', function(App\Http\Controllers\MyController $index, $ac
 
 Route::any('admin/{action}', function(App\Http\Controllers\AdminController $index, $action){
 	return $index->$action();
-}
+});
 Route::any('backer/{action}', function(App\Http\Controllers\BackerController $index, $action){
     return $index->$action();
 });
