@@ -17,7 +17,7 @@
 <body>   
     <div class="row">
         <div class="u-menu">
-                       <ul class="u-nav" id="user_menu">
+           <ul class="u-nav" id="user_menu">
                 <li class="item" id="user_menu_my" name="user_menu_my">
                     <h3 class="t1">
                         我的大融小贷<span title="折叠"></span></h3>

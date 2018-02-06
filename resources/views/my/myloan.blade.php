@@ -1,20 +1,22 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>密码管理</title>
-     <base href="{{ URL::asset('/home/js/') }}">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>我的贷款 用户中心 - 一起好</title>
+    <base href="{{ URL::asset('/home/js/') }}">
     <base href="{{ URL::asset('/home/css/') }}">
     <base href="{{ URL::asset('/home/images/') }}">
+    <meta name="Keywords" content="一起好 用户中心" />
+    <meta name="Description" content="一起好 用户中心" />
     <script src="js/ops.js" type="text/javascript"></script>
     <link href="css/UserCSS.css" rel="stylesheet" type="text/css" />
-    <script src="js/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="row" style="margin-top: 10px;">
     </div>
     <div class="row">
         <div class="u-menu">
-                       <ul class="u-nav" id="user_menu">
+             <ul class="u-nav" id="user_menu">
                 <li class="item" id="user_menu_my" name="user_menu_my">
                     <h3 class="t1">
                         我的大融小贷<span title="折叠"></span></h3>
@@ -85,76 +87,61 @@
                 }
             </script>
         </div>
+        <!-- /.u-menu -->
         <div class="u-main">
-            <div id="tab_menu">
+            <script src="/public/hao/js/user/loan.js"></script>
+            <div class="u-tab-wrap">
                 <ul class="u-tab clearfix">
-                    <li class="current"><a>登陆密码</a></li>
-                    <li><a>支付密码</a></li>
-                </ul>
+                    <li class="current"><a>我的贷款</a></li><!--
+                <li class="current"><a href="#">全部贷款</a></li><li><a href="#">招标中的贷款</a></li><li><a href="#">还款中的贷款</a></li><li><a href="#">已完成的贷款</a></li>
+                --></ul>
             </div>
-            <div id="tab_box">
-                <div class="u-form-wrap">                 
-                    <div>
-                        <div class="main f_r">
-           <div class="uc_title m_10">
-              <label class="current"><span>密码管理</span></label>
-         </div>
-          <div class="form_content">
-             <div class="uc_title2 m_10"><span class="f_r">带<b class="red">*</b>号的项目为必填项</span><strong>修改密码</strong></div>
-                <form action='/my/uppwd' method='get'>
-            <table class="form_table" cellpadding="0" cellspacing="0">
-                <col width="200px" />
-                <col />
-                <tr>
-                    <th><span class="red">*</span>原有密码：</th><td><input type='password'  name="fpassword"  alt='请输入原有密码'  /><label>原密码</label></td>
-                </tr>
-                <tr>
-                    <th><span class="red">*</span>你想要的新密码：</th><td><input type='password' class="normal" name="password" pattern='^\w{6,32}$' alt='密码由英文字母、数字组成，长度6-32位' bind='repassword' /><label>密码由英文字母、数字组成，长度6-32位</label></td>
-                </tr>
-                <tr>
-                    <th><span class="red">*</span>请再次输入新密码：</th><td><input type='password' class="normal" name="repassword" pattern='^\w{6,32}$' alt='密码由英文字母、数字组成，长度6-32位' bind='password' /><label>密码由英文字母、数字组成，长度6-32位</label></td>
-                </tr>
-                <tr>
-                    <th></th>
-                    <td>
-                        <label class="btn"><input type="submit" value="修改密码" /></label>
-                        <label class="btn"><input type="reset" value="取消" /></label>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
-</div></div>
+            <div class="u-form-wrap" style="padding: 20px;">
+                <div class="page-wrap">
+                     <form action="/my/search">
+                    标题:<input type="text" name="title" value="">
+                <input type="submit" value="搜索">
+                </form>
+                        </div>
+                        <table class="u-table">
+                            <tr>
+                            <th width="20%">
+                                    姓名
+                                </th>
+                                <th width="20%">
+                                    日期
+                                </th>
+                                <th width="20%">
+                                    贷款金额
+                                </th>
+                                <th>
+                                    还款
+                                </th>
+                            
+                            </tr>
+                            <?php foreach ($data as $k => $v): ?>
+                            <tr>
+                                <td style="color: green;"> {{$v->user}}                                
+                                </td>
+                                <td style="color: red;">{{$v->date}}
+                                </td>
+                                <td style="color: red;">{{$v->money}}
+                               </td> 
+                               <td>
+                                    <div class="i-item-btn" style="height: 28px;">
+                             <a href="#"  class="i-btn-txt1 repay-back">还 款</a></div>
+                               </td>                                    
+                            </tr> 
+                           
+                            <?php endforeach ?>
+                           
+                        </table>
                 </div>
-                <div class="u-form-wrap" style="display: none;">                    
-                    <div>
-                        这是支付密码设置</div>
-                </div>                
+                
             </div>
+            <!-- /.u-form-wrap -->
         </div>
-        <script type="text/javascript">
-
-            var $div_li = $("#tab_menu ul li");
-
-            $div_li.click(function () {
-
-                $(this).addClass("current").siblings().removeClass("current");
-
-                var div_index = $div_li.index(this);
-
-                $("#tab_box>div").eq(div_index).show().siblings().hide();
-
-            }).hover(function () {
-
-                $(this).addClass("hover");
-
-            }, function () {
-
-                $(this).removeClass("hover");
-
-            });
-
-        </script>
+        <!-- /.u-main -->
     </div>
 </body>
 </html>

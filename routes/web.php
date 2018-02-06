@@ -33,3 +33,7 @@ Route::any('invest/{action}', function(App\Http\Controllers\InvestController $in
 Route::any('my/{action}', function(App\Http\Controllers\MyController $index, $action){
     return $index->$action();
 });
+
+Route::any('admin/{action}', function(App\Http\Controllers\AdminController $index, $action){
+    return $index->$action();
+});

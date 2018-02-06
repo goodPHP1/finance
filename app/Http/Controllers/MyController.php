@@ -24,6 +24,66 @@ class MyController extends Controller
 	public function repay(){
 		return view('my.repay');
 	}
+  //资金记录
+  public function money()
+  {
+    return view("my.money");
+  }
+  //提现记录
+  public function withdrawal()
+  {
+    return view("my.withdrawal");
+  }
+  //三方托管
+  public function san()
+  {
+    return view("my.san");
+  }
+  //股权转让
+  public function rights()
+  {
+    return view("my.rights");
+  }
+  //理财统计
+  public function financial()
+  {
+    $data=DB::select("select * from loan");
+    $zong1=$data[0]->money;
+    $zong2=$data[0]->recycle;
+    $zong=$zong1+$zong2;
+    return view("my.financial",['data'=>$data,'zong'=>$zong]);
+  }
+  //搜索
+  public function search()
+  {
+      
+      $serch['title']=isset($_GET['title'])?$_GET['title']:'';
+      $where=" 1=1 ";
+      if (!empty($serch['title'])) 
+      {
+         $where.="and user like '%$serch[title]%' ";
+      }
+      $data=DB::select("select * from loan where $where");
+      $zong1=$data[0]->money;
+      $zong2=$data[0]->recycle;
+      $zong=$zong1+$zong2;
+
+      return view('my.financial',['data'=>$data,'zong'=>$zong]);
+    }
+
+    
+
+  //我的贷款
+  public function myloan()
+  {
+    $data=DB::select("select * from loan");
+    return view("my.myloan",['data'=>$data]);
+  }
+  //自动投标
+  public function automatic()
+  {
+    return view("my.automatic");
+  }
 	//充值记录
 	public function top_up(){
 		return view('my.top_up');

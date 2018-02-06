@@ -1,20 +1,23 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>密码管理</title>
-     <base href="{{ URL::asset('/home/js/') }}">
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>资金记录 用户中心 - 三方托管</title>
+    <base href="{{ URL::asset('/home/js/') }}">
     <base href="{{ URL::asset('/home/css/') }}">
     <base href="{{ URL::asset('/home/images/') }}">
-    <script src="js/ops.js" type="text/javascript"></script>
     <link href="css/UserCSS.css" rel="stylesheet" type="text/css" />
     <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/ops.js" type="text/javascript"></script>
+    <script src="js/UserJS.js" type="text/javascript"></script>
+    <script src="js/jquery.datepicker.min.js" type="text/javascript"></script>
+    <script src="js/jquery.template.min.js" type="text/javascript"></script>
+    <script src="js/funds.js" type="text/javascript"></script>
 </head>
-<body>
-    <div class="row" style="margin-top: 10px;">
-    </div>
+<body>    
     <div class="row">
-        <div class="u-menu">
-                       <ul class="u-nav" id="user_menu">
+    <div class="u-menu">
+             <ul class="u-nav" id="user_menu">
                 <li class="item" id="user_menu_my" name="user_menu_my">
                     <h3 class="t1">
                         我的大融小贷<span title="折叠"></span></h3>
@@ -85,76 +88,42 @@
                 }
             </script>
         </div>
-        <div class="u-main">
-            <div id="tab_menu">
+        <!-- /.u-menu -->
+        <div class="u-main">            
+            <div class="u-tab-wrap">
                 <ul class="u-tab clearfix">
-                    <li class="current"><a>登陆密码</a></li>
-                    <li><a>支付密码</a></li>
-                </ul>
+                    <li class="current"><a>三方托管</a></li></ul>
             </div>
-            <div id="tab_box">
-                <div class="u-form-wrap">                 
-                    <div>
-                        <div class="main f_r">
-           <div class="uc_title m_10">
-              <label class="current"><span>密码管理</span></label>
-         </div>
-          <div class="form_content">
-             <div class="uc_title2 m_10"><span class="f_r">带<b class="red">*</b>号的项目为必填项</span><strong>修改密码</strong></div>
-                <form action='/my/uppwd' method='get'>
-            <table class="form_table" cellpadding="0" cellspacing="0">
-                <col width="200px" />
-                <col />
-                <tr>
-                    <th><span class="red">*</span>原有密码：</th><td><input type='password'  name="fpassword"  alt='请输入原有密码'  /><label>原密码</label></td>
-                </tr>
-                <tr>
-                    <th><span class="red">*</span>你想要的新密码：</th><td><input type='password' class="normal" name="password" pattern='^\w{6,32}$' alt='密码由英文字母、数字组成，长度6-32位' bind='repassword' /><label>密码由英文字母、数字组成，长度6-32位</label></td>
-                </tr>
-                <tr>
-                    <th><span class="red">*</span>请再次输入新密码：</th><td><input type='password' class="normal" name="repassword" pattern='^\w{6,32}$' alt='密码由英文字母、数字组成，长度6-32位' bind='password' /><label>密码由英文字母、数字组成，长度6-32位</label></td>
-                </tr>
-                <tr>
-                    <th></th>
-                    <td>
-                        <label class="btn"><input type="submit" value="修改密码" /></label>
-                        <label class="btn"><input type="reset" value="取消" /></label>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
-</div></div>
+            <div class="u-form-wrap" style="padding: 20px;">
+                <div class="uf-tips">
+                    <p class="red">
+                        1、开通支付宝账户必须绑定有效的手机号和真实姓名。</p>
+                    <p class="red">
+                        2、已经绑定的用户，系统会在你使用支付宝在线充值时自动开户。</p>
+                    <p class="red">
+                        3、从支付宝取现，必须进行实名认证。</p>
                 </div>
-                <div class="u-form-wrap" style="display: none;">                    
-                    <div>
-                        这是支付密码设置</div>
-                </div>                
+                <div class="m-form-box mt10">
+                    <div class="m-form-til">
+                        <b>我的支付宝账户</b></div>
+                    <div class="i-item i-long-item">
+                        <label class="i-til">
+                            支付宝账号：</label><div class="i-txt">
+                                <span style="color: green;">njro_123@163.com</span></div>
+                    </div>
+                    <div class="i-item i-long-item">
+                        <label class="i-til">
+                            资金同步状态：</label><div class="i-txt">
+                                <span style="color: green;">已同步</span></div>
+                    </div>
+                    <div class="i-item-btn" style="text-align: center;">
+                        请输入支付密码：
+                        <input id="user_paypwd" class="i-inp" type="password" name="paypwd" value="" style="width: 100px;
+                            height: 21px;" /><a id="pnr_login" class="i-btn-txt1" style="margin-left: 10px; overflow: visible;">登录支付宝</a><span
+                                class="green">（ 输完支付密码后，可直接按回车键登录！）</span></div>
+                </div>
             </div>
         </div>
-        <script type="text/javascript">
-
-            var $div_li = $("#tab_menu ul li");
-
-            $div_li.click(function () {
-
-                $(this).addClass("current").siblings().removeClass("current");
-
-                var div_index = $div_li.index(this);
-
-                $("#tab_box>div").eq(div_index).show().siblings().hide();
-
-            }).hover(function () {
-
-                $(this).addClass("hover");
-
-            }, function () {
-
-                $(this).removeClass("hover");
-
-            });
-
-        </script>
     </div>
 </body>
 </html>

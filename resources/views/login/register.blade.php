@@ -162,7 +162,7 @@ kaiguan=0;
 			}
 		});
 		var obj=$(this);
-		var time=60;
+		var time=10;
 		if(kaiguan==1){
 			
 		}else{

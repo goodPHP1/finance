@@ -16,35 +16,32 @@
 <body>
     <div class="row">
         <div class="u-menu">
-            <ul class="u-nav" id="user_menu">
+                        <ul class="u-nav" id="user_menu">
                 <li class="item" id="user_menu_my" name="user_menu_my">
                     <h3 class="t1">
                         我的大融小贷<span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a href="/my/index">个人主页</a></li><li><a href="/my/info">个人资料</a></li><li><a href="/my/approve">
-                            认证管理</a></li><li><a href="/my/pwd">密码设置</a></li><li><a href="/my/recommend">推荐有奖</a></li></ul>
+                        <li><a class="current" href="javascript:;">个人主页</a></li><li><a href="/my/info">个人资料</a></li><li>
+                            <a href="/my/approve">认证管理</a></li><li><a href="/my/pwd">密码设置</a></li><li><a href="/my/recommend">推荐有奖</a></li></ul>
                 </li>
                 <li class="item" id="user_menu_funds" name="user_menu_funds">
                     <h3 class="t2">
                         资金管理<span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a href="资金记录.htm">资金记录</a></li><li><a href="充值中心.htm">充值记录</a></li><li>
-                            <a href="提现中心.htm">提现记录</a></li>
-                        <li><a href="三方托管.htm">三方托管</a></li></ul>
+                         <li><a href="/my/money">资金记录</a></li><li><a href="/my/top_up">充值记录</a></li><li><a href="/my/withdrawal">提现记录</a></li><li><a href="/my/san">三方托管</a></li></ul>
                 </li>
                 <li class="item" id="user_menu_invest" name="user_menu_invest">
                     <h3 class="t4">
                         理财管理<span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a class="current" href="/my/invest">我的投资</a></li><li><a href="债权转让.htm">债权转让</a></li><li><a href="自动投标.htm">自动投标</a></li><li>
-                            <a href="理财统计.htm">理财统计</a></li></ul>
+                       <li><a href="/my/invest">我的投资</a></li><li><a href="/my/rights">债权转让</a></li><li><a href="/my/automatic">自动投标</a></li><li>
+                            <a href="/my/financial">理财统计</a></li></ul>
                 </li>
                 <li class="item" id="user_menu_loan" name="user_menu_loan">
                     <h3 class="t3">
                         贷款管理<a name="user_login"></a><span title="折叠"></span></h3>
                     <ul class="sub">
-                         <li><a href="我的贷款.htm">我的贷款</a></li><li><a href="偿还贷款.htm">偿还贷款</a></li><li>
-                            <a href="贷款统计.htm">贷款统计</a></li></ul>
+                        <li><a  href="/my/myloan">我的贷款</a></li><li><a href="/my/repay">偿还贷款</a></li><li><a href="/my/statistical">贷款统计</a></li></ul>
                 </li>
             </ul>
             <script type="text/javascript">
@@ -104,9 +101,7 @@
                  <th>ID</th>
                   <th>图片</th>
                   <th>标题</th>
-                  <th>贷款人</th>
                   <th>所在地区</th>
-                  <th>投标金额</th>
                   <th>期限</th>
                   <th>利润</th>
                   <th>信用等级</th>
@@ -119,8 +114,6 @@
                     <td>{{$v->i_id}}</td>
                     <td><img src="images/1.gif" alt="" height="25px" width="25px" /></td>
                     <td>{{$v->corporate_name}}</td>
-                    <td>{{$v->name}}</td>
-                    <td>{{$v->price}}</td>
                     <td>{{$v->rais_money}}</td>
                     <td>{{$v->term}}</td>
                     <td>{{$v->income}}</td>

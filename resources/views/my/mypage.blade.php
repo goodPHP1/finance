@@ -30,20 +30,20 @@
                     <h3 class="t2">
                         资金管理<span title="折叠"></span></h3>
                     <ul class="sub">
-                         <li><a href="资金记录.htm">资金记录</a></li><li><a href="/my/top_up">充值记录</a></li><li><a href="提现中心.htm">提现记录</a></li><li><a href="三方托管.htm">三方托管</a></li></ul>
+                         <li><a href="/my/money">资金记录</a></li><li><a href="/my/top_up">充值记录</a></li><li><a href="/my/withdrawal">提现记录</a></li><li><a href="/my/san">三方托管</a></li></ul>
                 </li>
                 <li class="item" id="user_menu_invest" name="user_menu_invest">
                     <h3 class="t4">
                         理财管理<span title="折叠"></span></h3>
                     <ul class="sub">
-                       <li><a href="/my/invest">我的投资</a></li><li><a href="债权转让.htm">债权转让</a></li><li><a href="自动投标.htm">自动投标</a></li><li>
-                            <a href="理财统计.htm">理财统计</a></li></ul>
+                       <li><a href="/my/invest">我的投资</a></li><li><a href="/my/rights">债权转让</a></li><li><a href="/my/automatic">自动投标</a></li><li>
+                            <a href="/my/financial">理财统计</a></li></ul>
                 </li>
                 <li class="item" id="user_menu_loan" name="user_menu_loan">
                     <h3 class="t3">
                         贷款管理<a name="user_login"></a><span title="折叠"></span></h3>
                     <ul class="sub">
-                        <li><a  href="我的贷款.htm">我的贷款</a></li><li><a href="/my/repay">偿还贷款</a></li><li><a href="/my/statistical">贷款统计</a></li></ul>
+                        <li><a  href="/my/myloan">我的贷款</a></li><li><a href="/my/repay">偿还贷款</a></li><li><a href="/my/statistical">贷款统计</a></li></ul>
                 </li>
             </ul>
             <script type="text/javascript">
@@ -179,7 +179,6 @@
                                     <th>投资说明</th>
                                     <th>合作公司</th>
                                     <th>投资时间</th>
-                                    <th>投资人</th>
                                     <th>投资状态</th>
                                     <th>利益</th>
                                 </tr>
@@ -191,7 +190,6 @@
                                         <td>{{$val->repayment}}</td>
                                         <td>{{$val->guarantee}}</td>
                                         <td>{{$val->date}}</td>
-                                        <td>{{$val->name}}</td>
                                         <td>{{$val->schedule}}</td>
                                         <td>{{$val->term}}</td>
                                     </tr>

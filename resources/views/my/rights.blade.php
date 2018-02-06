@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>密码管理</title>
-     <base href="{{ URL::asset('/home/js/') }}">
+    <title>债权转让</title>
+    <base href="{{ URL::asset('/home/js/') }}">
     <base href="{{ URL::asset('/home/css/') }}">
     <base href="{{ URL::asset('/home/images/') }}">
     <script src="js/ops.js" type="text/javascript"></script>
@@ -14,7 +14,7 @@
     </div>
     <div class="row">
         <div class="u-menu">
-                       <ul class="u-nav" id="user_menu">
+             <ul class="u-nav" id="user_menu">
                 <li class="item" id="user_menu_my" name="user_menu_my">
                     <h3 class="t1">
                         我的大融小贷<span title="折叠"></span></h3>
@@ -88,48 +88,33 @@
         <div class="u-main">
             <div id="tab_menu">
                 <ul class="u-tab clearfix">
-                    <li class="current"><a>登陆密码</a></li>
-                    <li><a>支付密码</a></li>
+                    <li class="current"><a>关于债权的转让</a></li>
+                    <li><a>转让的债权</a></li>
+                    <li><a>承接的债权</a></li>
+                    <li><a>回收中的贷款</a></li>
                 </ul>
             </div>
             <div id="tab_box">
-                <div class="u-form-wrap">                 
-                    <div>
-                        <div class="main f_r">
-           <div class="uc_title m_10">
-              <label class="current"><span>密码管理</span></label>
-         </div>
-          <div class="form_content">
-             <div class="uc_title2 m_10"><span class="f_r">带<b class="red">*</b>号的项目为必填项</span><strong>修改密码</strong></div>
-                <form action='/my/uppwd' method='get'>
-            <table class="form_table" cellpadding="0" cellspacing="0">
-                <col width="200px" />
-                <col />
-                <tr>
-                    <th><span class="red">*</span>原有密码：</th><td><input type='password'  name="fpassword"  alt='请输入原有密码'  /><label>原密码</label></td>
-                </tr>
-                <tr>
-                    <th><span class="red">*</span>你想要的新密码：</th><td><input type='password' class="normal" name="password" pattern='^\w{6,32}$' alt='密码由英文字母、数字组成，长度6-32位' bind='repassword' /><label>密码由英文字母、数字组成，长度6-32位</label></td>
-                </tr>
-                <tr>
-                    <th><span class="red">*</span>请再次输入新密码：</th><td><input type='password' class="normal" name="repassword" pattern='^\w{6,32}$' alt='密码由英文字母、数字组成，长度6-32位' bind='password' /><label>密码由英文字母、数字组成，长度6-32位</label></td>
-                </tr>
-                <tr>
-                    <th></th>
-                    <td>
-                        <label class="btn"><input type="submit" value="修改密码" /></label>
-                        <label class="btn"><input type="reset" value="取消" /></label>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
-</div></div>
+                <div class="u-form-wrap">
+                    <div class="uf-tips">
+                        <span class="red">*</span> 关于债权的 转让</div>
                 </div>
-                <div class="u-form-wrap" style="display: none;">                    
-                    <div>
-                        这是支付密码设置</div>
-                </div>                
+                <div class="u-form-wrap" style="display: none;">
+                    <!-- uf-tips -->
+                    <div class="uf-tips">
+                        <span class="red">*</span> 转让的债权
+                    </div>
+                </div>
+                <div class="u-form-wrap" style="display: none;">
+                    <div class="uf-tips">
+                        <span class="red">*</span> 承接的债权
+                    </div>
+                </div>
+                <div class="u-form-wrap" style="display: none;">
+                    <div class="uf-tips">
+                        <span class="red">*</span> 会中中的贷款
+                    </div>
+                </div>
             </div>
         </div>
         <script type="text/javascript">
