@@ -68,10 +68,4 @@ class LoginController extends Controller
 		curl_close($curl);
 		return $return_str;
 	}
-	public function aaaa(){
-		
-	}
-	public function bbbb(){
-	
-	}
 }
